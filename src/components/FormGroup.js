@@ -10,14 +10,14 @@ export default function FormGroup(props) {
 
             <FormLabel sx={{color : 'black', fontSize : '1.2rem'}}> {props.title} </FormLabel>
             <RadioGroup
-                defaultValue={`${props.questao}_0`}
+                defaultValue="0"
                 name={props.questao}
             >
             
-            <FormControlLabel value={`${props.questao}_-1`} control={<Radio />} label="Discordo." />
-            <FormControlLabel value={`${props.questao}_0`}  control={<Radio />} label="Tanto faz." />
-            <FormControlLabel value={`${props.questao}_1`}  control={<Radio />} label="Concordo." />
-            <FormControlLabel value={`${props.questao}_2`}  control={<Radio />} label="Muito!" />
+            <FormControlLabel value="-1" control={<Radio />} label="Discordo." />
+            <FormControlLabel value="0"  control={<Radio />} label="Tanto faz." />
+            <FormControlLabel value="1"  control={<Radio />} label="Concordo." />
+            <FormControlLabel value="2"  control={<Radio />} label="Muito!" />
             
             </RadioGroup>
 
