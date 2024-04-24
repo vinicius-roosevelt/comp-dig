@@ -7,27 +7,60 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FeaturedPost from './FeaturedPost';
 import Footer from './Footer';
 import FormGroup from './FormGroup';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CourseCard from './CourseCard';
 
 import FormControl from '@mui/material/FormControl';
 import Banner from './Banner';
 
 const defaultTheme = createTheme();
 
+const styleModal = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function Blog() {
 
   const [ responseModalOpen, setResponseModalOpen ] = React.useState(false);
+  const [ cursos, setCursos ] = React.useState([]);
 
   function handleForm( event ) {
     event.preventDefault();
 
     const data = new FormData(event.target);
+    var result = [];
+
     for (const [name,value] of data) {
-      console.log(name, ":", value)
+      if ( value > 0 ) {
+        result.push( { course : name, peso : value })
+      }
     }
 
-    setResponseModalOpen(true)
-    console.log(responseModalOpen)
+    result.sort( (o1, o2) => {
+      if ( o1.peso > o2.peso ) {
+        return -1
+      }
 
+      if (o2.peso > o1.peso) {
+        return 1
+      }
+
+      return 0;
+    } )
+
+    setCursos( result.slice(0, 4) );
+    setResponseModalOpen( true );
   }
 
   return (
@@ -94,6 +127,35 @@ export default function Blog() {
 
           <Footer />
         </main>
+
+
+        {/* MODAL */}
+        <Modal
+          open={ responseModalOpen }
+          onClose={ () => {} }
+        >
+
+          <Card sx={ styleModal }>
+            <CardContent>
+
+              <Typography variant="h5">
+                Comunidades com interesses em comum
+              </Typography>
+
+              { cursos.map( (item, key) => {
+
+                return (
+                  <CourseCard key={key} title={item.course} />
+                )
+                
+              })}
+              {/* <CourseCard title={item.title} /> */}
+
+            </CardContent>
+          </Card>
+
+        </Modal>
+
       </Container>
 
     </ThemeProvider>
