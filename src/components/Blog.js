@@ -70,7 +70,7 @@ export default function Blog() {
         <main>
           <Banner 
               title="Identidade digital"
-              content= "Texto sobre o que é identidade digital deve vir aqui" />
+              content= "O que é isso?" />
 
           <Grid container spacing={4}>
             <FeaturedPost />
