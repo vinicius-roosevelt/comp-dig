@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -18,7 +17,20 @@ function FeaturedPost() {
             </Typography>
             
             <Typography paragraph>
-              Preencha a pesquisa abaixo para ser direcionado à comunidades com interesses em comum.
+              Identidade, segundo o Grande Dicionário da Língua Portuguesa, é a
+              “consciência que uma pessoa tem de si própria; Conjunto de nome, de apelido, de parentesco, de profissão, de sinais físicos que
+              individualiza a pessoa | Conjunto de elementos que permitem saber quem a pessoa é.
+            </Typography>
+
+            <Typography paragraph>
+              Diante disso, podemos considerar que a identidade digital é a forma como você transparece suas individualidades, e também, a forma
+              como você constrói uma personalidade dentro das redes.
+            </Typography>
+
+            <Typography paragraph>
+              Tendo isso em mente, o questionário busca entender os seus interesses e te direcionar para comunidades que compartilhes desses
+              interesses. Dessa forma, pode-se compartilhar informações e conhecimentos sobre essas áreas de como que todos os integrantes
+              consigam aperfeiçoar seus conhecimentos.
             </Typography>
 
           </CardContent>
